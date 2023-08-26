@@ -1,6 +1,7 @@
 
 from modes.clock_mode import ClockMode
 from modes.color_mode import ColorMode
+from modes.daytime_mode import DaytimeMode
 from modes.leaves_mode import LeavesMode
 from modes.rainbow_mode import RainbowMode
 from pygame_display import PygameDisplay
@@ -21,8 +22,9 @@ controller = Controller(display, mandala)
 
 # mode = ColorMode((0, 0, 255))
 # mode = LeavesMode(mandala)
-# mode = RainbowMode(2)
-mode = ClockMode()
+# mode = RainbowMode(3)
+# mode = ClockMode()
+mode = DaytimeMode()
 
 controller.start()
 controller.set_mode(mode)

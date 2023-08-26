@@ -17,6 +17,7 @@ def interpolate_hue(h1, h2, t):
     return ((step * t) + h1) % 1
 
 def interpolate_rgb(c1, c2, t):
+    t = min(1, max(0, t))
     return (min(255, c1[0] + (t * (c2[0] - c1[0]))), min(255, c1[1] + (t * (c2[1] - c1[1]))), min(255, c1[2] + (t * (c2[2] - c1[2]))))
 
 # def distance_to_line(m, b, x0, y0):

@@ -8,7 +8,7 @@ class ColorMode(Mode):
         super().__init__()
 
     def tick(self, mandala):
-        return list(map(lambda x: self.color, mandala.leds))
+        return [self.color for _ in mandala.leds]
     
     def refresh_rate(self):
         return 20

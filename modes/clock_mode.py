@@ -18,7 +18,7 @@ class ClockMode(Mode):
 
     def tick(self, mandala):
         
-        colors = list(map(lambda x: self.bg_color, mandala.leds))
+        colors = [self.bg_color for _ in mandala.leds]
 
         current_time = datetime.datetime.now()
         second = current_time.second + (current_time.microsecond / 1000000)
