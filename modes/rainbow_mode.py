@@ -5,7 +5,6 @@ from modes.mode import Mode
 from util import dist, interpolate_hue, rgb_from_hue
 
 
-
 class RainbowMode(Mode):
     
     def __init__(self, variant):
@@ -16,6 +15,7 @@ class RainbowMode(Mode):
         self.range = self.base_range
         self.alt_range = True # periodically increase and decrease the rainbow range
         self.alt_direction = True # periodically change the direction
+        self.alt_center = True # periodically move the center point of the visualization
         self.inverse = False
         super().__init__()
 
@@ -48,8 +48,9 @@ class RainbowMode(Mode):
     
     def circular(self, leds):
         colors = []
+        y_scale = 1 + (abs(time.time() % 24 - 12) / 12) # makes animation alter circle and oval
         for led in leds:
-            d = dist(led[0], led[1], 0, 0)
+            d = dist(led[0], led[1] * y_scale, 0, 0)
             hue = (self.hue - (d * self.range)) % 1
             colors.append(rgb_from_hue(hue))
         return colors
