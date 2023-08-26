@@ -13,7 +13,7 @@ class Controller:
         while self.mode is not None:
             if (time.time() > self.last_refresh + (1 / self.mode.refresh_rate())):
                 self.last_refresh = time.time()
-                led_colors = self.mode.tick(self.mandala.leds)
+                led_colors = self.mode.tick(self.mandala)
                 self.display.show(led_colors)
                 yield
 

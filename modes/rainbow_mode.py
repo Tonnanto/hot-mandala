@@ -19,7 +19,7 @@ class RainbowMode(Mode):
         self.inverse = False
         super().__init__()
 
-    def tick(self, leds):
+    def tick(self, mandala):
 
         if (self.inverse):
             self.hue = (self.hue - self.animation_speed) % 1
@@ -34,13 +34,13 @@ class RainbowMode(Mode):
             self.range = 0.5 * self.base_range + (self.base_range * (abs(time.time() % 24 - 12) / 12))
 
         if (self.variant == 1):
-            return self.single_color(leds)
+            return self.single_color(mandala.leds)
         if (self.variant == 2):
-            return self.circular(leds)
+            return self.circular(mandala.leds)
         if (self.variant == 3):
-            return self.spiral(leds)
+            return self.spiral(mandala.leds)
         if (self.variant == 4):
-            return self.ring(leds)
+            return self.ring(mandala.leds)
     
     def single_color(self, leds):
         color = rgb_from_hue(self.hue)

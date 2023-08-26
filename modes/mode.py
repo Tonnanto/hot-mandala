@@ -1,6 +1,6 @@
 
 class Mode:
-    def tick(self, leds):
+    def tick(self, mandala):
         """calculate the color values for the given leds and return them."""
         pass
 

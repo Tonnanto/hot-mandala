@@ -1,5 +1,6 @@
 
 from modes.color_mode import ColorMode
+from modes.leaves_mode import LeavesMode
 from modes.rainbow_mode import RainbowMode
 from pygame_display import PygameDisplay
 from controller import Controller
@@ -18,7 +19,8 @@ display = PygameDisplay(2560, 1440, mandala)
 controller = Controller(display, mandala)
 
 # mode = ColorMode((0, 0, 255))
-mode = RainbowMode(4)
+mode = LeavesMode(mandala)
+# mode = RainbowMode(3)
 
 controller.start()
 controller.set_mode(mode)
