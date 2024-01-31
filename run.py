@@ -17,14 +17,14 @@ running = True
 
 # Components
 mandala = pygame_mandala
-display = PygameDisplay(2560, 1440, mandala)
+display = PygameDisplay(1920, 1080, mandala)
 controller = Controller(display, mandala)
 
 # mode = ColorMode((0, 0, 255))
-# mode = LeavesMode(mandala)
+mode = LeavesMode(mandala)
 # mode = RainbowMode(3)
 # mode = ClockMode()
-mode = DaytimeMode()
+# mode = DaytimeMode()
 
 controller.start()
 controller.set_mode(mode)

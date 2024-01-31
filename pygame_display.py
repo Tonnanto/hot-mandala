@@ -25,8 +25,8 @@ class PygameDisplay(Display):
         self.leds = mandala.leds
         self.colors = self.create_initial_color_list()
         self.prev_colors = np.copy(self.colors)
-        self.window = pg.display.set_mode((width, height), pg.DOUBLEBUF)
-        self.mandala = pg.transform.scale(pg.image.load("mandala.png"), (1400, 1400))
+        self.window = pg.display.set_mode((width, height), pg.FULLSCREEN)
+        self.mandala = pg.transform.scale(pg.image.load("mandala.png"), (self.height * 0.9, self.height * 0.9))
 
     def __iter__(self):
         while True:
@@ -37,8 +37,8 @@ class PygameDisplay(Display):
                 for i in range(self.led_count):
                     color = self.colors[i]
                     coords = self.leds[i]
-                    coords = tuple(a * b for a, b in zip(coords, (700, 700)))
-                    coords = tuple(a + b for a, b in zip(coords, (1280, 720)))
+                    coords = tuple(a * b for a, b in zip(coords, (self.height * 0.45, self.height * 0.45)))
+                    coords = tuple(a + b for a, b in zip(coords, (self.width * 0.5, self.height * 0.5)))
                     self.draw_led(coords, color)
 
                 self.draw_mandala()
